@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.orange-glow {
+  box-shadow: 0 0 20px rgba(255, 140, 66, 0.25);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 140, 66, 0.4);
+  transition: 0.3s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #FF8C42, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
