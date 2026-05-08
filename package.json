@@ -1,4 +1,9 @@
 {
+  "name": "optmize",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1"
   }
