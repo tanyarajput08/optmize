@@ -60,6 +60,7 @@ function KanbanBoard({
                 task.status === "Todo"
             )
           }
+          fetchTasks={fetchTasks}
         />
 
         <KanbanColumn
@@ -70,6 +71,7 @@ function KanbanBoard({
                 task.status === "In Progress"
             )
           }
+          fetchTasks={fetchTasks}
         />
 
         <KanbanColumn
@@ -80,6 +82,7 @@ function KanbanBoard({
                 task.status === "Completed"
             )
           }
+          fetchTasks={fetchTasks}
         />
 
       </div>

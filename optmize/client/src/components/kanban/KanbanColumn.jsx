@@ -4,7 +4,8 @@ import KanbanTask from "./KanbanTask";
 
 function KanbanColumn({
   title,
-  tasks
+  tasks,
+  fetchTasks
 }) {
 
   const { setNodeRef } = useDroppable({
@@ -28,6 +29,7 @@ function KanbanColumn({
           <KanbanTask
             key={task._id}
             task={task}
+            fetchTasks={fetchTasks}
           />
 
         ))}
