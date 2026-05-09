@@ -11,6 +11,9 @@ import ProtectedRoute from "./ProtectedRoute";
 import Projects from "../pages/projects/Projects";
 import Tasks from "../pages/tasks/Tasks";
 import Notifications from "../pages/notifications/Notifications";
+import Analytics from "../pages/analytics/Analytics";
+import Team from "../pages/team/Team";
+import Settings from "../pages/settings/Settings";
 
 function AppRoutes() {
   return (
@@ -57,6 +60,30 @@ function AppRoutes() {
     </ProtectedRoute>
   }
 />
+        <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/team"
+          element={
+            <ProtectedRoute>
+              <Team />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
     </BrowserRouter>
