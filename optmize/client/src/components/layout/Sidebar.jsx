@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 const menuItems = [
   {
@@ -51,6 +53,17 @@ const menuItems = [
 function Sidebar() {
 
   const location = useLocation();
+  const { user } = useContext(AuthContext);
+
+  const dynamicMenuItems = menuItems.map(item => {
+    if (item.title === "Dashboard") {
+      return {
+        ...item,
+        path: user?.role === "admin" ? "/dashboard" : "/member-dashboard"
+      };
+    }
+    return item;
+  });
 
   return (
     <div className="w-[270px] min-h-screen bg-[#121212] border-r border-zinc-800 p-5 flex flex-col">
@@ -71,7 +84,7 @@ function Sidebar() {
       {/* Navigation */}
       <div className="flex flex-col gap-3">
 
-        {menuItems.map((item, index) => {
+        {dynamicMenuItems.map((item, index) => {
 
           const Icon = item.icon;
 
@@ -106,17 +119,17 @@ function Sidebar() {
       {/* Bottom User Card */}
       <div className="mt-auto glass-card rounded-3xl p-4 flex items-center gap-4">
 
-        <div className="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-black font-bold">
-          T
+        <div className="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-black font-bold text-lg uppercase">
+          {user?.name ? user.name.charAt(0) : "U"}
         </div>
 
         <div>
-          <h3 className="font-semibold">
-            Tanya
+          <h3 className="font-semibold capitalize">
+            {user?.name || "User"}
           </h3>
 
-          <p className="text-zinc-500 text-sm">
-            Admin
+          <p className="text-zinc-500 text-sm capitalize">
+            {user?.role || "Member"}
           </p>
         </div>
 
