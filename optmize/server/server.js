@@ -12,7 +12,13 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      "https://optmize-two.vercel.app",
+    credentials: true
+  })
+);
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
