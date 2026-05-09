@@ -6,6 +6,7 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 
 import AdminDashboard from "../pages/dashboard/AdminDashboard";
+import MemberDashboard from "../pages/dashboard/MemberDashboard";
 
 import ProtectedRoute from "./ProtectedRoute";
 import Projects from "../pages/projects/Projects";
@@ -34,6 +35,15 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        {/* Protected Member Dashboard */}
+        <Route
+          path="/member-dashboard"
+          element={
+            <ProtectedRoute>
+              <MemberDashboard />
             </ProtectedRoute>
           }
         />
